@@ -13,7 +13,7 @@ const Messages = () => {
       <Navbar />
       <Container fluid>
         <Jumbotron>
-          <CardDeck className={style.cardDeck}>
+          <CardDeck className="cardDeck">
             {data &&
               data.map((item) => (
                 <MessageCard

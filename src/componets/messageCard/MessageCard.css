@@ -1,0 +1,38 @@
+.cardMain {
+    width        : 18rem;
+    padding      : 5px;
+    border-radius: 20px;
+}
+
+
+.cardHeader {
+
+    background-color: white;
+}
+
+.cardTitle {
+    justify-content: left;
+    align-items    : center;
+    border-radius  : 20px;
+    text-align     : left;
+}
+
+.cardBody {
+    border-radius: 20px;
+}
+
+.cardFooter {}
+
+.fancyBox {
+    background-color: blue;
+}
+
+.markAsRead {
+    text-align: right;
+    font-size : 15px;
+}
+
+.timestamp {
+    text-align: left;
+    font-size : 15px;
+}
