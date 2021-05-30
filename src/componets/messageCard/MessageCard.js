@@ -2,10 +2,9 @@ import { Card, Row, Col, Alert, Form } from "react-bootstrap";
 import { useState } from "react";
 import style from "./MessageCard.css";
 
-const MessageCard = (data) => {
+const MessageCard = (data, setChecked) => {
   const [show, setShow] = useState(false);
   const [showMsg, setShowMsg] = useState(true);
-  const [checked, setChecked] = useState({ id: data.id, state: data.state });
 
   let date = new Intl.DateTimeFormat("en-UK", {
     year: "numeric",
@@ -43,7 +42,10 @@ const MessageCard = (data) => {
       );
     }
   };
-  console.log(data);
+
+  function handleSubmit(event) {
+
+  }
   return (
     <>
       {data && showMsg && (
@@ -75,10 +77,7 @@ const MessageCard = (data) => {
               <Form.Check
                 aria-label="option 1"
                 label="Mark"
-                value={checked.state}
-                onChange={() =>
-                  setChecked({ id: data.id, state: Number(checked.state) })
-                }
+                onClick={handleSubmit}
               />
             </Card.Text>
           </Card.Body>

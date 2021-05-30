@@ -7,6 +7,7 @@ import { useState } from "react";
 
 const Messages = () => {
   const [data, setData] = useFetchData();
+  const [checked, setChecked] = useState(false);
 
   return (
     <>
@@ -23,6 +24,7 @@ const Messages = () => {
                   body={item.body}
                   timestamp={item.timestamp}
                   state={item.state}
+                  setChecked={setChecked}
                 />
               ))}
           </CardDeck>

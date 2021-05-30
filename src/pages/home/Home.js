@@ -6,7 +6,10 @@ const Home = () => {
     <>
       <Navbar />
       <Container fluid>
-        <Jumbotron>Hello</Jumbotron>
+        <Jumbotron>
+         <p> npm start</p>
+         <p>npm run serve</p>
+        </Jumbotron>
       </Container>
     </>
   );
