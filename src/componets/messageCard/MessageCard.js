@@ -1,42 +1,38 @@
-import { Card, Collapse, Row, Col, Alert, Container } from "react-bootstrap";
+import { Card, Row, Col, Alert, Form } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import style from "./MessageCard.css";
 
 const MessageCard = (data) => {
   const [show, setShow] = useState(false);
-  const [open, setOpen] = useState(false);
-  const [test, setTest] = useState(data);
-  console.log(test);
+  const [state, setState] = useState(data.state);
+  const [checked, setChecked] = useState({ id: data.id, state: data.state });
+
   let date = new Intl.DateTimeFormat("en-UK", {
     year: "numeric",
     month: "2-digit",
     day: "2-digit",
   }).format(data.timestamp);
 
-  useEffect(() => {
-    if (data.state === 1) {
-      setShow(false);
-    }
-  }, []);
-
   const textLength = () => {
-    if (data.body.length <= 250) {
-      console.log("open", data);
+    if (data.body.length <= 200) {
       return data.body;
     }
     if (data.body.length > 200 && show) {
-      console.log("closed", data);
       return (
         <>
           <p>{data.body}</p>
-          <div className="showMore" onClick={() => setShow(false)}>
+          <div
+            className="showMore"
+            onClick={() => {
+              setShow(false);
+            }}
+          >
             Show less
           </div>
         </>
       );
     }
     if (data.body.length > 200) {
-      console.log(data);
       return (
         <>
           <p>{data.body.slice(0, 200)}</p>
@@ -48,6 +44,7 @@ const MessageCard = (data) => {
     }
   };
 
+  
   return (
     <>
       {data && (
@@ -62,28 +59,34 @@ const MessageCard = (data) => {
               <Col xs lg="3" className="fancyBox">
                 <div
                   className={style.markAsRead}
-                  onClick={() => setShow(false)}
+                  onClick={() => setState(true)}
                 >
-                  <Alert variant={"primary"} className="alertText">
-                    Mark as read
-                  </Alert>
+                  {data && data.state === 1 ? (
+                    <Alert variant={"primary"} className="alertText">
+                      Mark as read
+                    </Alert>
+                  ) : (
+                    <Alert variant={"success"} className="alertText">
+                      Mark as unread
+                    </Alert>
+                  )}
                 </div>
               </Col>
             </Row>
           </Card.Header>
           <Card.Body className="cardBody">
             <Card.Text className="cardText">{textLength()}</Card.Text>
-            <Row
-              style={{
-                position: "absolute",
-                bottom: "0px",
-                right: "0px",
-              }}
-            >
-              <Col>
-                <Card.Footer className="cardFooter">{date}</Card.Footer>
-              </Col>
-            </Row>
+            <Card.Text className="cardFooter">{date}</Card.Text>
+            <Card.Text className="cardFooter">
+              <Form.Check
+                aria-label="option 1"
+                label="Mark"
+                value={checked.state}
+                onChange={() =>
+                  setChecked({ id: data.id, state: Number(checked.state) })
+                }
+              />
+            </Card.Text>
           </Card.Body>
         </Card>
       )}
