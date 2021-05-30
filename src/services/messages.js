@@ -40,6 +40,6 @@ export async function getMessagewithId(id) {
 export async function getAllMessages() {
   return await getMessagesAPIGETResponse(`/messages`);
 }
-/* export async function setMessageAsRead(id,state){
-  return await
-} */
+ export async function setMessageAsRead(id,state){
+  return await getMessagesAPIPOSTResponse();
+} 

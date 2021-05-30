@@ -5,7 +5,7 @@ import { Jumbotron, Container, CardDeck } from "react-bootstrap";
 import useFetchData from "../../hooks/useFetchData";
 import style from "./Message.module.scss";
 const Messages = () => {
-  const [data, setData] = useFetchData(2140);
+  const [data, setData] = useFetchData();
 
   console.log("message", data);
   return (

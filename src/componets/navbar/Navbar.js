@@ -1,10 +1,11 @@
 import style from "./Navbar.css";
+import { Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const NavBar = () => {
   return (
     <>
-      <nav className="navbar">
+      <Nav className="navBar">
         <Link className="navbar-brand" to="/">
           Home
         </Link>
@@ -17,7 +18,7 @@ const NavBar = () => {
         <Link className="navbar-brand" to="/messages">
           Messages
         </Link>
-      </nav>
+      </Nav>
     </>
   );
 };

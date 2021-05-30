@@ -1,35 +1,51 @@
 .cardMain {
-    width        : 18rem;
-    padding      : 5px;
-    border-radius: 20px;
-}
-
-
-.cardHeader {
-
+    min-width       : 36rem;
+    max-width       : 36rem;
+    max-height      : 35rem;
+    padding         : 10px;
+    border-radius   : 20px;
     background-color: white;
 }
 
+.cardHeader {
+    background-color: white;
+    justify-content : left;
+    text-align      : left;
+}
+
 .cardTitle {
-    justify-content: left;
-    align-items    : center;
-    border-radius  : 20px;
-    text-align     : left;
+    border-radius: 20px;
 }
 
 .cardBody {
     border-radius: 20px;
+    padding      : 0%;
+
 }
 
-.cardFooter {}
+.cardTest {
+    min-height: 25rem;
+}
+
+.cardFooter {
+    text-align      : right;
+    background-color: white;
+    width           : "100vw !important";
+    border          : 0%;
+}
 
 .fancyBox {
-    background-color: blue;
+    text-align : center;
+    align-items: center;
+
+}
+
+.alertText {
+    font-size: 10px;
 }
 
 .markAsRead {
-    text-align: right;
-    font-size : 15px;
+    font-size: 10px;
 }
 
 .timestamp {
