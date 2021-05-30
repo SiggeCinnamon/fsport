@@ -30,9 +30,10 @@
 .cardFooter {
     text-align      : right;
     background-color: white;
-    width           : "100vw !important";
-    border          : 0%;
+    border-color    : white;
 }
+
+
 
 .fancyBox {
     text-align : center;

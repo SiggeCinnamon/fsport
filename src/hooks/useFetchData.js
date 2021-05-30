@@ -11,9 +11,9 @@ const useFetchData = (id) => {
       });
     };
     fetchData();
-    console.log("fetch", data);
+
   }, []);
-  console.log("fetch", data);
+
   return [data, setData];
 };
 export default useFetchData;

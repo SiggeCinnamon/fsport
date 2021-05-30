@@ -1,13 +1,13 @@
 import Navbar from "../../componets/navbar/Navbar";
 import MessageCard from "../../componets/messageCard";
-import { useState } from "react";
-import { Jumbotron, Container, CardDeck } from "react-bootstrap";
+import { Jumbotron, Container, CardDeck, Dropdown } from "react-bootstrap";
 import useFetchData from "../../hooks/useFetchData";
-import style from "./Message.module.scss";
+import style from "./Message.css";
+import { useState } from "react";
+
 const Messages = () => {
   const [data, setData] = useFetchData();
 
-  console.log("message", data);
   return (
     <>
       <Navbar />
