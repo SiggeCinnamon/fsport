@@ -33,6 +33,24 @@ async function getMessagesAPIPOSTResponse(route, payload) {
     console.error(error);
   }
 }
+async function getMessagesAPIDELETEResponse(route, payload) {
+  try {
+    const config = {
+      baseURL: "http://localhost:8000",
+      method: "DELETE",
+    };
+
+    try {
+      const result = await axios.create(config).delete(route);
+      console.log(result);
+      return result.data;
+    } catch (error) {
+      console.error(error);
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}
 
 export async function getMessagewithId(id) {
   return await getMessagesAPIGETResponse(`/messages/${id}`);
@@ -40,8 +58,6 @@ export async function getMessagewithId(id) {
 export async function getAllMessages() {
   return await getMessagesAPIGETResponse(`/messages`);
 }
-export async function setMessageAsRead(id, state) {
-  return await getMessagesAPIPOSTResponse(`/messages/${id}`, {
-    state: state,
-  });
+export async function deleteMsg(id) {
+  return await getMessagesAPIDELETEResponse(`/messages/${id}`);
 }

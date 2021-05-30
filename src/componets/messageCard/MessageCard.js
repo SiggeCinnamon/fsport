@@ -1,10 +1,10 @@
 import { Card, Row, Col, Alert, Form } from "react-bootstrap";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import style from "./MessageCard.css";
 
 const MessageCard = (data) => {
   const [show, setShow] = useState(false);
-  const [state, setState] = useState(data.state);
+  const [showMsg, setShowMsg] = useState(true);
   const [checked, setChecked] = useState({ id: data.id, state: data.state });
 
   let date = new Intl.DateTimeFormat("en-UK", {
@@ -43,11 +43,10 @@ const MessageCard = (data) => {
       );
     }
   };
-
-  
+  console.log(data);
   return (
     <>
-      {data && (
+      {data && showMsg && (
         <Card id={data.id} className="cardMain">
           <Card.Header className="cardHeader">
             <Row>
@@ -57,20 +56,15 @@ const MessageCard = (data) => {
                 </Card.Title>
               </Col>
               <Col xs lg="3" className="fancyBox">
-                <div
-                  className={style.markAsRead}
-                  onClick={() => setState(true)}
-                >
-                  {data && data.state === 1 ? (
-                    <Alert variant={"primary"} className="alertText">
-                      Mark as read
-                    </Alert>
-                  ) : (
-                    <Alert variant={"success"} className="alertText">
-                      Mark as unread
-                    </Alert>
-                  )}
-                </div>
+                {data && (
+                  <Alert
+                    variant={"primary"}
+                    className="alertText"
+                    onClick={() => setShowMsg(false)}
+                  >
+                    Delete
+                  </Alert>
+                )}
               </Col>
             </Row>
           </Card.Header>

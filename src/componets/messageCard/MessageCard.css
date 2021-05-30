@@ -20,7 +20,6 @@
 .cardBody {
     border-radius: 20px;
     padding      : 0%;
-
 }
 
 .cardTest {
@@ -33,12 +32,9 @@
     border-color    : white;
 }
 
-
-
 .fancyBox {
     text-align : center;
     align-items: center;
-
 }
 
 .alertText {
